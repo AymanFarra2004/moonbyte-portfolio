@@ -1,0 +1,116 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { NAV_ITEMS } from "@/data/site-data";
+import Button from "@/components/ui/Button";
+import { Menu, X, Sparkles } from "lucide-react";
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "glass-nav py-3.5 shadow-2xl shadow-purple-950/20"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 p-[1.5px] shadow-lg shadow-purple-600/30 group-hover:shadow-purple-500/50 transition-all duration-300">
+            <div className="w-full h-full bg-[#060714] rounded-full flex items-center justify-center">
+              <span className="text-white text-xs font-black">🌙</span>
+            </div>
+          </div>
+          <span className="font-main tracking-widest text-lg sm:text-xl text-white group-hover:text-purple-300 transition-colors uppercase">
+            MOON<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">BYTE</span>
+          </span>
+        </Link>
+
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-8 bg-black/25 backdrop-blur-md px-6 py-2 rounded-full border border-purple-500/15 font-secondary">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-xs font-secondary font-medium tracking-wider text-slate-300 hover:text-white uppercase transition-colors relative py-1 group"
+            >
+              {item.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
+            </Link>
+          ))}
+        </nav>
+
+        {/* Desktop CTA Button */}
+        <div className="hidden md:block">
+          <Button
+            href="#about"
+            variant="cyan"
+            size="sm"
+            className="font-bold text-xs px-5 py-2.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white shadow-lg shadow-blue-500/25"
+          >
+            ENTER THE WORLD
+          </Button>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-950/40 focus:outline-none"
+          aria-label="Toggle Navigation Menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass-nav border-b border-purple-500/20 px-6 py-6 overflow-hidden"
+          >
+            <div className="flex flex-col gap-4">
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-semibold tracking-wider text-slate-200 hover:text-purple-400 uppercase py-2 border-b border-purple-900/30"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="pt-2">
+                <Button
+                  href="#contact"
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  START A PROJECT
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
