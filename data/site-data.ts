@@ -113,68 +113,84 @@ export const SERVICES: ServiceItem[] = [
     number: "01",
     title: "BUSINESS WEBSITES",
     description:
-      "Tailored corporate and enterprise platforms that project authority and convert visitors into loyal clients.",
-    features: ["Custom Architecture", "High Conversion", "Enterprise Security"],
+      "Flagship corporate platforms engineered with mathematical precision, corporate authority, and headless CMS mastery.",
+    features: [
+      "Custom Architecture",
+      "Multi-Region CDN",
+      "Enterprise SEO Matrix",
+    ],
   },
   {
     id: "portfolio-websites",
     number: "02",
-    title: "PORTFOLIOS & STUDIOS",
+    title: "PORTFOLIO WEBSITES",
     description:
-      "Immersive, expressive portfolios designed for artists, studios, and pioneers ready to lead their industries.",
-    features: ["Bespoke Visuals", "Fluid Motion", "Interactive Showcases"],
+      "Expressive, museum-grade portfolio exhibitions for pioneering architects, luxurydesigners, and world-class visionaries.",
+    features: [
+      "Kinetic Typography",
+      "Fluid Transition Engines",
+      "Curated Media Galleries",
+    ],
   },
   {
     id: "landing-pages",
     number: "03",
     title: "LANDING PAGES",
     description:
-      "High-velocity, hyper-focused pages architected to drive exponential growth and maximize conversions.",
-    features: ["A/B Ready", "Ultra-fast LCP", "Analytics Integration"],
+      "High-velocity, narrative-driven conversion vehicles designed for hyper-growth venture launches and category kings.",
+    features: [
+      "Narrative Scrolltelling",
+      "99+ Core Web Vitals",
+      "Frictionless Flow Analytics",
+    ],
   },
   {
     id: "custom-experiences",
     number: "04",
     title: "CUSTOM EXPERIENCES",
     description:
-      "Bespoke spatial digital experiences, interactive micro-sites, and bleeding-edge web applications.",
-    features: ["3D Interactivity", "WebGL / Motion", "Creative Engineering"],
+      "Immersive WebGL simulations, real-time spatial 3D environments, and audio reactive interactive installations.",
+    features: [
+      "Three.js / GLSL Shaders",
+      "Real-time 3D Viewports",
+      "Generative Audio Nodes",
+    ],
   },
 ];
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
-    id: "orol",
-    title: "OROL",
-    category: "Mobile App & Delivery Platform",
+    id: "onos",
+    title: "ONOS",
+    category: "Food Delivery System",
     description:
-      "Modern food delivery and lifestyle ordering platform crafted for intuitive UX and streamlined mobile checkout.",
+      "A seamless food delivery experience connecting customers, drivers, and restaurants.",
     image: "/images/portfolio-orol.png",
+    badge: "MOBILE APP",
     ctaText: "VIEW CASE",
     ctaLink: "#",
-    badge: "Mobile UI/UX",
   },
   {
-    id: "centra-plus",
-    title: "Centra Plus",
-    category: "Automotive Telemetry App",
+    id: "carads-plus",
+    title: "CarAds Plus",
+    category: "Marketplace App",
     description:
-      "A luxury automotive companion mobile experience enabling real-time telemetry, vehicle control, and booking.",
+      "A modern marketplace experience for buying and renting cars with ease.",
     image: "/images/portfolio-centra.png",
+    badge: "MOBILE APP",
     ctaText: "VIEW CASE",
     ctaLink: "#",
-    badge: "Automotive",
   },
   {
-    id: "bit-one",
-    title: "Bit-One",
-    category: "Fintech & Web3 Terminal",
+    id: "ra-one",
+    title: "RA-One",
+    category: "Business Website",
     description:
-      "Cutting-edge crypto trading intelligence dashboard with real-time streaming analytics and global order flow.",
+      "A bilingual digital experience designed to bring a modern brand to life.",
     image: "/images/portfolio-bitone.png",
+    badge: "WEBSITE",
     ctaText: "VIEW CASE",
     ctaLink: "#",
-    badge: "Fintech Web3",
   },
 ];
 

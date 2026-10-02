@@ -10,27 +10,23 @@ export default function CrewSection() {
   return (
     <section id="crew" className="pt-0 pb-[80px] relative overflow-hidden bg-[#060714]">
       {/* 
-        Background Luster / Ambient Spotlight as in the screenshot:
-        Rich cosmic royal blue radial glow centered behind the crew cards.
-        Masked at the top to prevent any hard-edge clipping or visible line between sections.
+        Expanded Cosmic Blue Backlight / Radiant Ambient Spotlight:
+        Much bigger, encompassing the full width across all 4 cards and radiating 
+        from behind the title all the way through the cards as in the screenshot.
       */}
       <div
-        className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] lg:w-[1300px] h-[500px] lg:h-[600px] pointer-events-none rounded-full blur-[110px] opacity-75"
+        className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1600px] md:w-[1900px] lg:w-[2200px] h-[850px] md:h-[1000px] lg:h-[1150px] pointer-events-none rounded-full blur-[130px] md:blur-[160px] opacity-80"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(35, 75, 215, 0.45) 0%, rgba(20, 45, 140, 0.3) 45%, rgba(10, 20, 60, 0.1) 75%, transparent 100%)",
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 25%, black 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 25%, black 100%)",
+            "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(45, 95, 255, 0.48) 0%, rgba(30, 65, 195, 0.38) 35%, rgba(18, 40, 140, 0.2) 65%, transparent 88%)",
         }}
       />
-      {/* Secondary Wide Cosmic Indigo Halo */}
+      {/* Secondary Ultra-Wide Ambient Dispersion Halo */}
       <div
-        className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] lg:w-[1700px] h-[650px] pointer-events-none rounded-full blur-[150px] opacity-45"
+        className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2000px] lg:w-[2500px] h-[1000px] lg:h-[1300px] pointer-events-none rounded-full blur-[170px] opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 65% 45% at 50% 50%, rgba(30, 55, 170, 0.35) 0%, rgba(60, 25, 120, 0.2) 50%, transparent 85%)",
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 25%, black 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 25%, black 100%)",
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(35, 70, 200, 0.3) 0%, rgba(55, 25, 130, 0.15) 50%, transparent 85%)",
         }}
       />
 

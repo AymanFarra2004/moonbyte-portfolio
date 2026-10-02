@@ -1,118 +1,273 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import Container from "@/components/layout/Container";
-import { NAV_ITEMS } from "@/data/site-data";
+
+/**
+ * Stylized Moon Glyph for the 'O's in the MOONBYTE brand wordmark.
+ * Replicates the textured lunar disc with crater spots matching the reference design.
+ */
+function MoonGlyph({ className = "w-[24px] h-[24px] sm:w-[28px] sm:h-[28px]" }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center justify-center mx-[1.5px] align-middle -translate-y-[2px] ${className}`}>
+      <svg
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full drop-shadow-sm"
+      >
+        {/* Lunar disc body with soft silver fill */}
+        <circle
+          cx="16"
+          cy="16"
+          r="13.5"
+          fill="#f1f5f9"
+          stroke="#0a0f20"
+          strokeWidth="3"
+        />
+        {/* Dark crater formations */}
+        <circle cx="11" cy="10.5" r="2.4" fill="#0a0f20" />
+        <circle cx="21" cy="11" r="2" fill="#0a0f20" />
+        <circle cx="20.5" cy="19.5" r="2.8" fill="#0a0f20" />
+        <circle cx="11.5" cy="19.5" r="2.2" fill="#0a0f20" />
+        <circle cx="16" cy="15.5" r="1.3" fill="#0a0f20" />
+      </svg>
+    </span>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#04050d] border-t border-purple-500/15 pt-16 pb-12 overflow-hidden">
-      {/* Subtle top glow line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+    <footer className="w-full bg-[#8fa7ff] text-[#0a0f20] pt-14 sm:pt-18 lg:pt-20 pb-8 sm:pb-10 relative overflow-hidden select-none">
+      {/* 
+        Standard Outer & Inner Responsive Dimension System:
+        - Outer buffer: w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px]
+        - Inner content: max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto
+      */}
+      <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px] relative z-10">
+        <div className="w-full max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
+          {/* Main 4-Column Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-8 lg:gap-12 pb-12 sm:pb-16 items-start">
+            
+            {/* Column 1: Brand & Bio (Spans 5 cols on lg) */}
+            <div className="sm:col-span-2 lg:col-span-5 flex flex-col items-start">
+              {/* Brand Logo with Moon Glyphs */}
+              <Link
+                href="#"
+                className="inline-flex items-center text-2xl sm:text-3xl font-main font-black tracking-[0.14em] text-[#0a0f20] hover:opacity-90 transition-opacity"
+              >
+                <span>M</span>
+                <MoonGlyph />
+                <MoonGlyph />
+                <span>NBYTE</span>
+              </Link>
 
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-purple-900/30">
-          {/* Brand Column */}
-          <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 p-[1.5px]">
-                <div className="w-full h-full bg-[#060714] rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">🌙</span>
-                </div>
-              </div>
-              <span className="font-main tracking-widest text-xl text-white uppercase">
-                MOON<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">BYTE</span>
-              </span>
-            </Link>
-            <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
-              Where ideas come to life. We turn raw observations into living websites, immersive spatial experiences, and durable digital artifacts engineered for the next era.
-            </p>
-            <div className="text-xs text-purple-400/80 font-mono tracking-wider">
-              LATENCY: 12ms · STATUS: ALL SYSTEMS NOMINAL
+              {/* Tagline */}
+              <h3 className="font-secondary font-semibold text-base sm:text-[17px] text-[#000000] mt-4 mb-2 tracking-tight">
+                Where ideas come to life.
+              </h3>
+
+              {/* Description */}
+              <p className="font-secondary text-sm sm:text-sm text-[#080B18] leading-relaxed max-w-[280px] sm:max-w-[320px]">
+                A digital studio creating websites, experiences, and digital worlds.
+              </p>
             </div>
-          </div>
 
-          {/* Quick Links Column */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">
-              Navigation
-            </h4>
-            <ul className="space-y-2.5">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
+            {/* Column 2: EXPLORE */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+                EXPLORE
+              </h4>
+              <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm font-semibold tracking-wider">
+                <li>
                   <Link
-                    href={item.href}
-                    className="text-xs text-slate-400 hover:text-purple-300 transition-colors uppercase tracking-wider"
+                    href="#about"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block uppercase"
                   >
-                    {item.label}
+                    WORLD
                   </Link>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <Link
+                    href="#crew"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block uppercase"
+                  >
+                    CREW
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#services"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block uppercase"
+                  >
+                    WHAT WE BUILD
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#portfolio"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block uppercase"
+                  >
+                    PROJECTS
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#contact"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block uppercase"
+                  >
+                    CONTACT
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: THE UNIVERSE */}
+            <div className="lg:col-span-3 flex flex-col">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+                THE UNIVERSE
+              </h4>
+              <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm">
+                <li>
+                  <Link
+                    href="#universe"
+                    className="flex items-center group hover:translate-x-1 transition-all"
+                  >
+                    <span className="text-[#BDC2FF] font-sm mr-2.5 text-xs sm:text-sm transition-colors group-hover:text-[#0a0f20]">
+                      01
+                    </span>
+                    <span className="tracking-wider text-[#080B18] font-normal group-hover:text-black transition-colors uppercase">
+                      MOONBASE
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#universe"
+                    className="flex items-center group hover:translate-x-1 transition-all"
+                  >
+                    <span className="text-[#BDC2FF] font-normal mr-2.5 text-xs sm:text-sm transition-colors group-hover:text-[#0a0f20]">
+                      02
+                    </span>
+                    <span className="tracking-wider text-[#080B18] font-normal group-hover:text-black transition-colors uppercase">
+                      BYTE DISTRICT
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#universe"
+                    className="flex items-center group hover:translate-x-1 transition-all"
+                  >
+                    <span className="text-[#BDC2FF] font-sm mr-2.5 text-xs sm:text-sm transition-colors group-hover:text-[#0a0f20]">
+                      03
+                    </span>
+                    <span className="tracking-wider text-[#080B18] font-normal group-hover:text-black transition-colors uppercase">
+                      CREW STATION
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#universe"
+                    className="flex items-center group hover:translate-x-1 transition-all"
+                  >
+                    <span className="text-[#BDC2FF] font-sm mr-2.5 text-xs sm:text-sm transition-colors group-hover:text-[#0a0f20]">
+                      04
+                    </span>
+                    <span className="tracking-wider text-[#080B18] font-normal group-hover:text-black transition-colors uppercase">
+                      LAUNCH PAD
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#universe"
+                    className="flex items-center group hover:translate-x-1 transition-all"
+                  >
+                    <span className="text-[#BDC2FF] font-sm mr-2.5 text-xs sm:text-sm transition-colors group-hover:text-[#0a0f20]">
+                      05
+                    </span>
+                    <span className="tracking-wider text-[#080B18] font-normal group-hover:text-black transition-colors uppercase">
+                      SIGNAL CENTER
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: FOLLOW THE SIGNAL */}
+            <div className="lg:col-span-2 flex flex-col">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+                FOLLOW THE SIGNAL
+              </h4>
+              <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm font-semibold">
+                <li>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block tracking-wide"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block tracking-wide"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block tracking-wide"
+                  >
+                    X
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://behance.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#080B18] font-normal hover:text-black hover:translate-x-1 transition-all inline-block tracking-wide"
+                  >
+                    Behance
+                  </a>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
-          {/* Connect Column */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">
-              Transmissions
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-purple-300 transition-colors uppercase tracking-wider"
-                >
-                  X / Twitter
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-purple-300 transition-colors uppercase tracking-wider"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-purple-300 transition-colors uppercase tracking-wider"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://dribbble.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-purple-300 transition-colors uppercase tracking-wider"
-                >
-                  Dribbble
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          {/* Bottom Divider Line & Metadata Bar */}
+          <div className="border-t border-[#0a0f20]/15 pt-6 sm:pt-7 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left font-secondary text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-[#0a0f20]">
+            {/* Copyright */}
+            <div>
+              © 2026 MOONBYTE. ALL RIGHTS RESERVED.
+            </div>
 
-        {/* Bottom copyright and legal */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Moonbyte Studio. Engineered with Next.js & Framer Motion.</p>
-          <div className="flex gap-6">
-            <Link href="#privacy" className="hover:text-slate-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#terms" className="hover:text-slate-400 transition-colors">
-              Terms of Mission
-            </Link>
+            {/* Coordinates */}
+            <div className="flex items-center gap-1.5 opacity-90">
+              <span>•</span>
+              <span>LAT 35.6764° N // HYPERSPACE</span>
+            </div>
+
+            {/* Made with curiosity */}
+            <div className="flex items-center gap-1.5">
+              <span>MADE WITH CURIOSITY.</span>
+              <span className="text-sm">🌙</span>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

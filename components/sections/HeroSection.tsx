@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Container from "@/components/layout/Container";
@@ -96,28 +97,33 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="w-full max-w-xs text-left glass-card p-5 rounded-2xl border border-purple-500/25 backdrop-blur-xl shadow-2xl hidden sm:block bg-[#0c0e24]/85"
+            className="w-full max-w-[340px] text-center bg-[#0c1022]/90 backdrop-blur-xl p-7 sm:p-8 rounded-[28px] sm:rounded-[32px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.6)] hidden sm:flex flex-col items-center justify-center relative overflow-hidden"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-              <span className="text-[10px] font-mono tracking-widest text-cyan-300 uppercase font-bold">
+            {/* Top Tag Badge */}
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="w-2 h-2 rounded-full bg-[#8fa7ff] shadow-[0_0_8px_#8fa7ff]" />
+              <span className="text-xs font-secondary font-bold tracking-wider text-[#8fa7ff] uppercase">
                 THE CREW BEHIND THE WORLD
               </span>
             </div>
-            <h3 className="text-sm font-bold text-white mb-1.5 tracking-tight">
+
+            {/* Title */}
+            <h3 className="font-secondary font-bold text-lg sm:text-[19px] text-white tracking-tight mb-2">
               Four minds. One universe.
             </h3>
-            <p className="text-xs text-slate-300 leading-snug mb-3.5">
+
+            {/* Subtitle / Description */}
+            <p className="font-secondary text-xs sm:text-[13px] text-slate-300 leading-relaxed max-w-[270px] mb-6 sm:mb-7">
               We combine UX/UI, frontend, backend, and security to turn ideas into digital experiences.
             </p>
-            <Button
+
+            {/* Solid Periwinkle Full-Pill Action Button */}
+            <Link
               href="#crew"
-              variant="cyan"
-              size="sm"
-              className="text-[11px] py-2 px-4 w-full font-bold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"
+              className="w-full py-3 sm:py-3.5 px-6 rounded-full bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-[0_0_20px_rgba(143,167,255,0.4)] active:scale-[0.98] inline-block text-center"
             >
               MEET THE CREW
-            </Button>
+            </Link>
           </motion.div>
         </div>
       </Container>

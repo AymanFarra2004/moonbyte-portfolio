@@ -13,45 +13,48 @@ export default function ServiceCard({ service }: ServiceCardProps) {
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+        },
       }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className="glass-card group rounded-2xl p-6 sm:p-7 relative overflow-hidden border border-purple-500/15 hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between"
+      className="group relative bg-[#12162a]/35 hover:bg-[#151a33]/85 backdrop-blur-[2px] rounded-[24px] sm:rounded-[28px] xl:rounded-[32px] p-6 sm:p-7 xl:p-8 border border-white/[0.08] hover:border-blue-400/30 shadow-[0_22px_50px_rgba(0,0,0,0.7),0_8px_20px_rgba(0,0,0,0.45)] transition-all duration-300 flex flex-col justify-between overflow-hidden"
     >
+      {/* Subtle ambient light on hover */}
+      <div className="absolute -top-16 -right-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
+
       <div>
-        {/* Number Badge */}
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-2xl sm:text-3xl font-black font-mono tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+        {/* Top Header: Title & Number */}
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <h3 className="font-secondary font-medium font-[500] text-lg sm:text-xl xl:text-[22px] text-white tracking-wide uppercase leading-tight group-hover:text-blue-200 transition-colors max-w-[200px] sm:max-w-none">
+            {service.title}
+          </h3>
+          <span className="font-main text-2xl sm:text-3xl xl:text-[34px] font-bold text-[#6581eb] tracking-normal shrink-0">
             {service.number}
-          </span>
-          <span className="w-8 h-8 rounded-full bg-purple-950/60 border border-purple-500/20 flex items-center justify-center text-xs text-purple-300 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
-            ↗
           </span>
         </div>
 
-        {/* Title */}
-        <h3 className="text-base sm:text-lg font-main tracking-normal text-white mb-2 uppercase group-hover:text-purple-200 transition-colors">
-          {service.title}
-        </h3>
-
         {/* Description */}
-        <p className="text-xs sm:text-sm font-secondary text-slate-300 leading-relaxed mb-4">
+        <p className="text-xs sm:text-[13px] xl:text-[13.5px] font-secondary text-slate-300/90 leading-relaxed mb-5">
           {service.description}
         </p>
       </div>
 
-      {/* Feature Tags */}
+      {/* Feature Bullet List */}
       {service.features && (
-        <div className="flex flex-wrap gap-1.5 pt-3 border-t border-purple-900/30">
+        <ul className="space-y-1.5 sm:space-y-2 mt-auto">
           {service.features.map((feat, idx) => (
-            <span
+            <li
               key={idx}
-              className="text-[10px] font-mono tracking-wider text-slate-400 uppercase px-2 py-0.5 rounded bg-black/40 border border-purple-500/10"
+              className="flex items-center gap-2 text-[11px] sm:text-xs font-secondary text-slate-400"
             >
-              {feat}
-            </span>
+              <span className="text-slate-500 text-sm leading-none">•</span>
+              <span>{feat}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </motion.div>
   );
