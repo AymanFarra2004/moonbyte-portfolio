@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_ITEMS } from "@/data/site-data";
 import Button from "@/components/ui/Button";
@@ -29,15 +30,15 @@ export default function Header() {
     >
       <div className="max-w-[1440px] 2xl:max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 p-[1.5px] shadow-lg shadow-purple-600/30 group-hover:shadow-purple-500/50 transition-all duration-300">
-            <div className="w-full h-full bg-[#060714] rounded-full flex items-center justify-center">
-              <span className="text-white text-xs font-black">🌙</span>
-            </div>
-          </div>
-          <span className="font-main tracking-widest text-lg sm:text-xl text-white group-hover:text-purple-300 transition-colors uppercase">
-            MOON<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">BYTE</span>
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/images/MoonByte-HeaderLogo.png"
+            alt="Moonbyte"
+            width={160}
+            height={40}
+            priority
+            className="h-8 sm:h-9 md:h-10 w-auto object-contain hover:opacity-90 transition-opacity"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}

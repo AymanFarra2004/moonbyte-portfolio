@@ -9,11 +9,12 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 export default function WhatWeBuildSection() {
   return (
-    <section id="services" className="py-[80px] lg:py-[100px] xl:py-[120px] relative overflow-hidden bg-[#060714]">
+    <section id="services" className="py-14 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden bg-[#060714] min-h-[720px] lg:min-h-[800px] xl:min-h-[850px] flex flex-col justify-center">
       {/* 
         Full Section Background Image:
         "moonbyte - what we built section.png" showcasing the cosmic landscape,
         moon, and high-fidelity laptop & phone device mockups on the right.
+        Pinned to object-right so the laptop and phone mockups are clear and fully visible on all screens.
       */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
@@ -21,12 +22,12 @@ export default function WhatWeBuildSection() {
           alt="Moonbyte What We Build Background"
           fill
           priority
-          className="object-cover object-right lg:object-[82%_center]"
+          quality={95}
+          sizes="100vw"
+          className="object-cover object-right"
         />
         {/* Subtle left-side overlay for enhanced mobile/tablet legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060714]/90 via-[#060714]/60 to-transparent lg:from-[#060714]/30 lg:via-transparent" />
-        {/* Soft edge blending with bottom section */}
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#060714] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060714]/90 via-[#060714]/50 to-transparent lg:from-[#060714]/25 lg:via-transparent" />
       </div>
 
       {/* 
@@ -40,10 +41,10 @@ export default function WhatWeBuildSection() {
         <div className="w-full max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
           {/* 
             Left-Side Content Container:
-            Covers ~56-58% of the container width on desktop, perfectly framing
-            the 2x2 cards over the mountains while leaving the device mockups on the right visible.
+            Framed at 48-50% width on desktop to cleanly sit over the mountains and sky,
+            leaving the entire right half fully open for the laptop and phone device mockups.
           */}
-          <div className="w-full lg:max-w-[58%] xl:max-w-[56%] 2xl:max-w-[54%] flex flex-col gap-8 md:gap-10">
+          <div className="w-full lg:max-w-[50%] xl:max-w-[48%] 2xl:max-w-[46%] flex flex-col gap-6 md:gap-7">
             {/* Header Block (Left-aligned as in Figma, scaling smoothly) */}
             <motion.div
               variants={fadeInUp}
@@ -52,10 +53,10 @@ export default function WhatWeBuildSection() {
               viewport={{ once: true }}
               className="flex flex-col items-start text-left"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] xl:text-[48px] 2xl:text-[52px] font-main text-white tracking-wide uppercase leading-tight text-glow-sm">
+              <h2 className="text-3xl sm:text-4xl md:text-[38px] xl:text-[44px] 2xl:text-[48px] font-main text-white tracking-wide uppercase leading-tight text-glow-sm">
                 WHAT WE BUILD
               </h2>
-              <p className="mt-2.5 xl:mt-3 text-sm sm:text-base xl:text-lg font-secondary text-slate-300 leading-relaxed max-w-2xl">
+              <p className="mt-2 xl:mt-2.5 text-xs sm:text-sm xl:text-base font-secondary text-slate-300 leading-relaxed max-w-xl">
                 Engineered for international brands and boundary-pushing founders demanding unforgettable digital authority.
               </p>
             </motion.div>
@@ -66,7 +67,7 @@ export default function WhatWeBuildSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 lg:gap-5"
             >
               {SERVICES.map((service) => (
                 <ServiceCard key={service.id} service={service} />

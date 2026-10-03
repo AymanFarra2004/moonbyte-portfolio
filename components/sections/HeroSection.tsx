@@ -31,7 +31,7 @@ export default function HeroSection() {
       <GlowOrb color="purple" size="xl" className="top-1/4 -left-32 opacity-35" />
       <GlowOrb color="blue" size="lg" className="bottom-1/3 -right-24 opacity-25" delay={2} />
 
-      <Container className="relative z-10 h-full flex flex-col justify-between pt-28 pb-8 sm:pb-12">
+      <Container className="relative z-10 h-full flex flex-col justify-between pt-28 pb-8 sm:pb-[140px]">
         {/* Upper Hero Content: Positioned in top area like attached layout */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto pt-4 sm:pt-6">
           {/* Top Tag */}
@@ -97,30 +97,31 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="w-full max-w-[340px] text-center bg-[#0c1022]/90 backdrop-blur-xl p-7 sm:p-8 rounded-[28px] sm:rounded-[32px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.6)] hidden sm:flex flex-col items-center justify-center relative overflow-hidden"
+            className="w-full max-w-[302px] text-center bg-[#0c1022]/90 backdrop-blur-l p-[20px] sm:p-[20px] rounded-[28px] sm:rounded-[32px] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.6)] hidden sm:flex flex-col items-center justify-center relative overflow-hidden"
           >
             {/* Top Tag Badge */}
             <div className="flex items-center justify-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#8fa7ff] shadow-[0_0_8px_#8fa7ff]" />
-              <span className="text-xs font-secondary font-bold tracking-wider text-[#8fa7ff] uppercase">
+              <span className="text-[12px] font-secondary font-medium tracking-wider text-[#8fa7ff] uppercase">
                 THE CREW BEHIND THE WORLD
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-secondary font-bold text-lg sm:text-[19px] text-white tracking-tight mb-2">
+            <h3 className="font-secondary font-medium text-[16px] sm:text-[19px] text-white tracking-tight mb-2">
               Four minds. One universe.
             </h3>
 
             {/* Subtitle / Description */}
-            <p className="font-secondary text-xs sm:text-[13px] text-slate-300 leading-relaxed max-w-[270px] mb-6 sm:mb-7">
-              We combine UX/UI, frontend, backend, and security to turn ideas into digital experiences.
+            <p className="font-secondary text-xs sm:text-[13px] text-slate-300 leading-relaxed max-w-[260px] mb-6 sm:mb-7">
+              We combine UX/UI, frontend, backend, and security to turn
+               ideas into digital experiences.
             </p>
 
             {/* Solid Periwinkle Full-Pill Action Button */}
             <Link
               href="#crew"
-              className="w-full py-3 sm:py-3.5 px-6 rounded-full bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-[0_0_20px_rgba(143,167,255,0.4)] active:scale-[0.98] inline-block text-center"
+              className="w-[75%] py-3 sm:py-3.5 px-6 rounded-full bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-[0_0_20px_rgba(143,167,255,0.4)] active:scale-[0.98] inline-block text-center"
             >
               MEET THE CREW
             </Link>

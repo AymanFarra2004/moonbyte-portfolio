@@ -125,7 +125,7 @@ export const SERVICES: ServiceItem[] = [
     number: "02",
     title: "PORTFOLIO WEBSITES",
     description:
-      "Expressive, museum-grade portfolio exhibitions for pioneering architects, luxurydesigners, and world-class visionaries.",
+      "Expressive, museum-grade portfolio exhibitions for pioneering architects, luxury designers, and world-class visionaries.",
     features: [
       "Kinetic Typography",
       "Fluid Transition Engines",

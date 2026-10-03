@@ -38,7 +38,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
         <div>
           {/* Header Row: Title & Category Pill */}
           <div className="flex items-center justify-between gap-3 mb-3">
-            <h3 className="font-secondary text-xl sm:text-2xl text-white font-meduim tracking-wide uppercase group-hover:text-blue-200 transition-colors">
+            <h3 className="font-secondary text-xl sm:text-2xl text-white font-medium tracking-wide uppercase group-hover:text-blue-200 transition-colors">
               {project.title}
             </h3>
             <span className="text-xs font-secondary font-medium text-slate-300 px-3.5 py-1 rounded-full bg-[#20294b] border border-blue-400/20 whitespace-nowrap">
@@ -52,14 +52,22 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
           </p>
         </div>
 
-        {/* Bottom Pill Badge */}
-        {project.badge && (
-          <div>
+        {/* Bottom Row: Badge + CTA */}
+        <div className="flex items-center justify-between">
+          {project.badge && (
             <span className="inline-flex items-center justify-center text-[11px] sm:text-xs font-main font-bold tracking-wider text-[#0a1024] uppercase px-3.5 py-1.5 rounded-full bg-[#8fa7ff] shadow-sm">
               {project.badge}
             </span>
-          </div>
-        )}
+          )}
+          {project.ctaText && project.ctaLink && (
+            <a
+              href={project.ctaLink}
+              className="text-xs sm:text-[13px] font-secondary font-bold text-[#8fa7ff] hover:text-[#b3c4ff] tracking-wider uppercase transition-colors"
+            >
+              {project.ctaText} →
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );

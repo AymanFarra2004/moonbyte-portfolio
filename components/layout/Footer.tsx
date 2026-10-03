@@ -2,39 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-
-/**
- * Stylized Moon Glyph for the 'O's in the MOONBYTE brand wordmark.
- * Replicates the textured lunar disc with crater spots matching the reference design.
- */
-function MoonGlyph({ className = "w-[24px] h-[24px] sm:w-[28px] sm:h-[28px]" }: { className?: string }) {
-  return (
-    <span className={`inline-flex items-center justify-center mx-[1.5px] align-middle -translate-y-[2px] ${className}`}>
-      <svg
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-sm"
-      >
-        {/* Lunar disc body with soft silver fill */}
-        <circle
-          cx="16"
-          cy="16"
-          r="13.5"
-          fill="#f1f5f9"
-          stroke="#0a0f20"
-          strokeWidth="3"
-        />
-        {/* Dark crater formations */}
-        <circle cx="11" cy="10.5" r="2.4" fill="#0a0f20" />
-        <circle cx="21" cy="11" r="2" fill="#0a0f20" />
-        <circle cx="20.5" cy="19.5" r="2.8" fill="#0a0f20" />
-        <circle cx="11.5" cy="19.5" r="2.2" fill="#0a0f20" />
-        <circle cx="16" cy="15.5" r="1.3" fill="#0a0f20" />
-      </svg>
-    </span>
-  );
-}
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -54,12 +22,24 @@ export default function Footer() {
               {/* Brand Logo with Moon Glyphs */}
               <Link
                 href="#"
-                className="inline-flex items-center text-2xl sm:text-3xl font-main font-black tracking-[0.14em] text-[#0a0f20] hover:opacity-90 transition-opacity"
+                className="inline-flex items-center font-secondary font-bold text-[28px] leading-none tracking-normal text-[#080B18] hover:opacity-90 transition-opacity"
               >
-                <span>M</span>
-                <MoonGlyph />
-                <MoonGlyph />
-                <span>NBYTE</span>
+                <span className="font-secondary font-bold">M</span>
+                <Image
+                  src="/images/MoonGlyph.svg"
+                  alt="O"
+                  width={21}
+                  height={21}
+                  className="w-[21px] h-[21px] mx-[1.5px] -translate-y-[1px] shrink-0"
+                />
+                <Image
+                  src="/images/MoonGlyph.svg"
+                  alt="O"
+                  width={21}
+                  height={21}
+                  className="w-[21px] h-[21px] mx-[1.5px] -translate-y-[1px] shrink-0"
+                />
+                <span className="font-secondary font-bold">NBYTE</span>
               </Link>
 
               {/* Tagline */}
@@ -75,7 +55,7 @@ export default function Footer() {
 
             {/* Column 2: EXPLORE */}
             <div className="lg:col-span-2 flex flex-col">
-              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-medium text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
                 EXPLORE
               </h4>
               <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm font-semibold tracking-wider">
@@ -124,7 +104,7 @@ export default function Footer() {
 
             {/* Column 3: THE UNIVERSE */}
             <div className="lg:col-span-3 flex flex-col">
-              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-medium text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
                 THE UNIVERSE
               </h4>
               <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm">
@@ -198,7 +178,7 @@ export default function Footer() {
 
             {/* Column 4: FOLLOW THE SIGNAL */}
             <div className="lg:col-span-2 flex flex-col">
-              <h4 className="font-secondary text-xs sm:text-[13px] font-meduim text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
+              <h4 className="font-secondary text-xs sm:text-[13px] font-medium text-[#3C3D77] uppercase tracking-widest mb-4 sm:mb-5">
                 FOLLOW THE SIGNAL
               </h4>
               <ul className="space-y-2.5 sm:space-y-3 font-secondary text-xs sm:text-sm font-semibold">
