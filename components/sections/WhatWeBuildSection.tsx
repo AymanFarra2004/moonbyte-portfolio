@@ -12,13 +12,13 @@ export default function WhatWeBuildSection() {
     <section id="services" className="py-14 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden bg-[#060714] min-h-[720px] lg:min-h-[800px] xl:min-h-[850px] flex flex-col justify-center">
       {/* 
         Full Section Background Image:
-        "moonbyte - what we built section.png" showcasing the cosmic landscape,
+        "moonbyte - what we built section.webp" showcasing the cosmic landscape,
         moon, and high-fidelity laptop & phone device mockups on the right.
         Pinned to object-right so the laptop and phone mockups are clear and fully visible on all screens.
       */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          src="/images/moonbyte - what we built section.png"
+          src="/images/moonbyte - what we built section.webp"
           alt="Moonbyte What We Build Background"
           fill
           priority

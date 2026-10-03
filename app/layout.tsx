@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/moonbyte - hero image.png",
+        url: "/images/moonbyte - hero image.webp",
         width: 1200,
         height: 630,
         alt: "Moonbyte Studio",
@@ -58,16 +58,16 @@ export const metadata: Metadata = {
     title: "Moonbyte — Ideas Start Here",
     description:
       "Digital craft, immersive web design, and high-performance engineering.",
-    images: ["/images/moonbyte - hero image.png"],
+    images: ["/images/moonbyte - hero image.webp"],
   },
   icons: {
     icon: [
-      { url: "/images/moonbyte-logo.png" },
-      { url: "/images/moonbyte-logo.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/moonbyte-logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/moonbyte-logo.webp" },
+      { url: "/images/moonbyte-logo.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/images/moonbyte-logo.webp", sizes: "16x16", type: "image/webp" },
     ],
-    shortcut: "/images/moonbyte-logo.png",
-    apple: "/images/moonbyte-logo.png",
+    shortcut: "/images/moonbyte-logo.webp",
+    apple: "/images/moonbyte-logo.webp",
   },
 };
 

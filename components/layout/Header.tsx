@@ -32,7 +32,7 @@ export default function Header() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group">
           <Image
-            src="/images/MoonByte-HeaderLogo.png"
+            src="/images/MoonByte-HeaderLogo.webp"
             alt="Moonbyte"
             width={160}
             height={40}

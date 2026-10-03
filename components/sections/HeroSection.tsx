@@ -15,7 +15,7 @@ export default function HeroSection() {
       {/* Hero Background Image - Natural with NO bottom shadow */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/moonbyte - hero image.png"
+          src="/images/moonbyte - hero image.webp"
           alt="Moonbyte Cosmic Landscape"
           fill
           priority

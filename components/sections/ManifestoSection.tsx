@@ -10,12 +10,12 @@ export default function ManifestoSection() {
     <section id="manifesto" className="py-[80px] lg:py-[100px] xl:py-[120px] relative overflow-hidden bg-[#060714]">
       {/* 
         Full Section Background Image:
-        "moonbyte - MANIFESTO section.png" showcasing the cosmic dusk landscape,
+        "moonbyte - MANIFESTO section.webp" showcasing the cosmic dusk landscape,
         the glowing crescent moon, and the 4 crew members standing on the mountain ridge.
       */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          src="/images/moonbyte - MANIFESTO section.png"
+          src="/images/moonbyte - MANIFESTO section.webp"
           alt="The Moonbyte Manifesto - Crew Under Crescent Moon"
           fill
           priority

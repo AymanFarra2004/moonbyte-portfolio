@@ -165,7 +165,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Food Delivery System",
     description:
       "A seamless food delivery experience connecting customers, drivers, and restaurants.",
-    image: "/images/portfolio-orol.png",
+    image: "/images/portfolio-orol.webp",
     badge: "MOBILE APP",
     ctaText: "VIEW CASE",
     ctaLink: "#",
@@ -176,7 +176,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Marketplace App",
     description:
       "A modern marketplace experience for buying and renting cars with ease.",
-    image: "/images/portfolio-centra.png",
+    image: "/images/portfolio-centra.webp",
     badge: "MOBILE APP",
     ctaText: "VIEW CASE",
     ctaLink: "#",
@@ -187,7 +187,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "Business Website",
     description:
       "A bilingual digital experience designed to bring a modern brand to life.",
-    image: "/images/portfolio-bitone.png",
+    image: "/images/portfolio-bitone.webp",
     badge: "WEBSITE",
     ctaText: "VIEW CASE",
     ctaLink: "#",
