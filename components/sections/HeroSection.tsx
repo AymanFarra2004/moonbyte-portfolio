@@ -11,27 +11,44 @@ import { fadeInUp, fadeInDown, scaleIn } from "@/lib/animations";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[1024px] min-h-[1024px] flex flex-col justify-between overflow-hidden">
-      {/* Hero Background Image - Natural with NO bottom shadow */}
+    <section className="relative min-h-[640px] h-screen sm:h-[1024px] sm:min-h-[1024px] flex flex-col justify-between overflow-hidden">
+      {/* Hero Background Images - Responsive (Desktop vs Tablet/Mobile) */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/moonbyte - hero image.webp"
-          alt="Moonbyte Cosmic Landscape"
-          fill
-          priority
-          quality={95}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        {/* Tablet & Mobile version (< 1024px) */}
+        <div className="block lg:hidden absolute inset-0">
+          <Image
+            src="/images/hero-teblet.jpg"
+            alt="Moonbyte Cosmic Landscape - Tablet"
+            fill
+            priority
+            quality={92}
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+
+        {/* Desktop version (>= 1024px) */}
+        <div className="hidden lg:block absolute inset-0">
+          <Image
+            src="/images/moonbyte - hero image.webp"
+            alt="Moonbyte Cosmic Landscape"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+
         {/* Subtle top header gradient for navbar readability only - NO bottom shadow */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#060714]/75 to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#060714]/75 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Ambient Lighting Orbs */}
       <GlowOrb color="purple" size="xl" className="top-1/4 -left-32 opacity-35" />
       <GlowOrb color="blue" size="lg" className="bottom-1/3 -right-24 opacity-25" delay={2} />
 
-      <Container className="relative z-10 h-full flex flex-col justify-between pt-28 pb-8 sm:pb-[140px]">
+      <Container className="relative z-10 h-full flex flex-col justify-between pt-24 sm:pt-28 pb-12 sm:pb-[140px]">
         {/* Upper Hero Content: Positioned in top area like attached layout */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto pt-4 sm:pt-6">
           {/* Top Tag */}

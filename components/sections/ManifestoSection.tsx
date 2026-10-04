@@ -10,18 +10,36 @@ export default function ManifestoSection() {
     <section id="manifesto" className="py-[80px] lg:py-[100px] xl:py-[120px] relative overflow-hidden bg-[#060714]">
       {/* 
         Full Section Background Image:
-        "moonbyte - MANIFESTO section.webp" showcasing the cosmic dusk landscape,
-        the glowing crescent moon, and the 4 crew members standing on the mountain ridge.
+        - Tablet & Mobile (< 1024px): Uses MANIFESTO-tablet.jpg with rich vertical atmosphere,
+          covering the full section height with smooth top/bottom edge gradient fades.
+        - Desktop (>= 1024px): Uses moonbyte - MANIFESTO section.webp landscape view.
       */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+      {/* Tablet & Mobile version (< 1024px) */}
+      <div className="block lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <Image
+          src="/images/MANIFESTO-tablet.jpg"
+          alt="The Moonbyte Manifesto - Tablet"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Soft edge blending for seamless section transitions */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#060714] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#060714] to-transparent" />
+      </div>
+
+      {/* Desktop version (>= 1024px) */}
+      <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         <Image
           src="/images/moonbyte - MANIFESTO section.webp"
           alt="The Moonbyte Manifesto - Crew Under Crescent Moon"
           fill
           priority
-          className="object-cover object-right md:object-center lg:object-[80%_center]"
+          sizes="100vw"
+          className="object-cover object-[80%_center]"
         />
-        {/* Soft edge blending with bottom section */}
+        {/* Soft edge blending for desktop */}
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#060714] to-transparent" />
       </div>
 
@@ -44,7 +62,7 @@ export default function ManifestoSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full lg:max-w-[58%] xl:max-w-[55%] 2xl:max-w-[52%] bg-[#0c1022]/35 hover:bg-[#0f1428]/45 backdrop-blur-[2px] rounded-[28px] sm:rounded-[32px] my-[42px] p-7 sm:p-10 md:p-12 xl:p-14 border border-white/[0.08] shadow-[0_22px_60px_rgba(0,0,0,0.7),0_8px_24px_rgba(0,0,0,0.5)] relative overflow-hidden transition-all duration-300"
+            className="w-full lg:max-w-[58%] xl:max-w-[55%] 2xl:max-w-[52%] bg-[#0c1022]/60 sm:bg-[#0c1022]/45 lg:bg-[#0c1022]/35 hover:bg-[#0f1428]/60 backdrop-blur-md lg:backdrop-blur-[2px] rounded-[28px] sm:rounded-[32px] my-[42px] p-7 sm:p-10 md:p-12 xl:p-14 border border-white/[0.08] shadow-[0_22px_60px_rgba(0,0,0,0.7),0_8px_24px_rgba(0,0,0,0.5)] relative overflow-hidden transition-all duration-300"
           >
             {/* Subtle ambient light on hover */}
             <div className="absolute -top-24 -right-24 w-52 h-52 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -12,11 +12,30 @@ export default function WhatWeBuildSection() {
     <section id="services" className="py-14 sm:py-16 lg:py-20 xl:py-24 relative overflow-hidden bg-[#060714] min-h-[720px] lg:min-h-[800px] xl:min-h-[850px] flex flex-col justify-center">
       {/* 
         Full Section Background Image:
-        "moonbyte - what we built section.webp" showcasing the cosmic landscape,
-        moon, and high-fidelity laptop & phone device mockups on the right.
-        Pinned to object-right so the laptop and phone mockups are clear and fully visible on all screens.
+        - Tablet & Mobile (< 1024px): Uses what we built section.jpg with vertical atmosphere,
+          filling the full section with soft edge gradient blends.
+        - Desktop (>= 1024px): Uses moonbyte - what we built section.webp landscape view.
       */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+      {/* Tablet & Mobile version (< 1024px) */}
+      <div className="block lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <Image
+          src="/images/what we built section.jpg"
+          alt="Moonbyte What We Build - Tablet & Mobile"
+          fill
+          priority
+          quality={92}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Subtle text-contrast scrim for card clarity */}
+        <div className="absolute inset-0 bg-[#060714]/40 sm:bg-[#060714]/25" />
+        {/* Top and bottom gradient fades for seamless transitions */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#060714] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#060714] to-transparent" />
+      </div>
+
+      {/* Desktop version (>= 1024px) */}
+      <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         <Image
           src="/images/moonbyte - what we built section.webp"
           alt="Moonbyte What We Build Background"
@@ -26,7 +45,7 @@ export default function WhatWeBuildSection() {
           sizes="100vw"
           className="object-cover object-right"
         />
-        {/* Subtle left-side overlay for enhanced mobile/tablet legibility */}
+        {/* Desktop subtle left overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#060714]/90 via-[#060714]/50 to-transparent lg:from-[#060714]/25 lg:via-transparent" />
       </div>
 
