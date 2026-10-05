@@ -9,7 +9,7 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 export default function UniverseSection() {
   return (
-    <section id="about" className="py-[80px] relative overflow-hidden bg-[#060714]">
+    <section id="about" className="pt-[80px] pb-[40px] relative overflow-hidden bg-[#080B18]">
       {/* Subtle ambient lighting */}
       <GlowOrb color="blue" size="lg" className="top-10 -left-40 opacity-15" />
       <GlowOrb color="purple" size="md" className="bottom-10 -right-20 opacity-20" />

@@ -128,7 +128,7 @@ export default function ContactSection() {
       */}
       <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px] relative z-10">
         <div className="w-full max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-start lg:items-stretch">
             
             {/* Left Column: Heading and 4 Contact Info Cards (5 cols) */}
             <motion.div
@@ -149,11 +149,11 @@ export default function ContactSection() {
               </p>
 
               {/* Outer Contact Items Card Container */}
-              <div className="bg-[#080D2B] border border-[#1b2552] rounded-[24px] sm:rounded-[28px] py-[32px] px-[24px] flex flex-col gap-3 shadow-xl">
+              <div className="bg-[#080D2B] border border-[#1b2552] rounded-[24px] sm:rounded-[28px] py-[32px] px-[24px] flex flex-col gap-3 lg:gap-3.5 shadow-xl lg:flex-1">
                 {/* 1. Email */}
                 <a
                   href="mailto:hello@moonbyte.studio"
-                  className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group"
+                  className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group lg:flex-1"
                 >
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <EmailIcon />
@@ -174,7 +174,7 @@ export default function ContactSection() {
                 {/* 2. Phone */}
                 <a
                   href="tel:+970123456789"
-                  className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group"
+                  className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group lg:flex-1"
                 >
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <PhoneWavesIcon />
@@ -190,7 +190,7 @@ export default function ContactSection() {
                 </a>
 
                 {/* 3. Address */}
-                <div className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group">
+                <div className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group lg:flex-1">
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <AddressMapIcon />
                   </div>
@@ -205,7 +205,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* 4. Working Hours */}
-                <div className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group">
+                <div className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group lg:flex-1">
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <WorkstationDeskIcon />
                   </div>
@@ -230,9 +230,9 @@ export default function ContactSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="lg:col-span-7"
+              className="lg:col-span-7 flex flex-col"
             >
-              <div className="bg-[#080D2B] border border-[#1b2552] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 md:p-9 shadow-2xl">
+              <div className="bg-[#080D2B] border border-[#1b2552] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 md:p-9 shadow-2xl lg:h-full lg:flex lg:flex-col lg:justify-between">
                 {submitted ? (
                   <div className="py-16 text-center flex flex-col items-center">
                     <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-300 mb-4">
@@ -252,7 +252,7 @@ export default function ContactSection() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-4.5">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-4.5 lg:h-full lg:justify-between">
                     {/* Full Name */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
@@ -334,7 +334,7 @@ export default function ContactSection() {
                           setFormData({ ...formData, message: e.target.value })
                         }
                         placeholder="Example: I have a great idea for an app or website and I need expert consultation on UI/UX design and development to bring this idea to life."
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors resize-none leading-relaxed"
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors resize-none leading-relaxed lg:h-[200px]"
                       />
                     </div>
 

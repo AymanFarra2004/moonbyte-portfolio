@@ -8,27 +8,7 @@ import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 export default function CrewSection() {
   return (
-    <section id="crew" className="pt-0 pb-[80px] relative overflow-hidden bg-[#060714]">
-      {/* 
-        Expanded Cosmic Blue Backlight / Radiant Ambient Spotlight:
-        Much bigger, encompassing the full width across all 4 cards and radiating 
-        from behind the title all the way through the cards as in the screenshot.
-      */}
-      <div
-        className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1600px] md:w-[1900px] lg:w-[2200px] h-[850px] md:h-[1000px] lg:h-[1150px] pointer-events-none rounded-full blur-[130px] md:blur-[160px] opacity-80"
-        style={{
-          background:
-            "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(45, 95, 255, 0.48) 0%, rgba(30, 65, 195, 0.38) 35%, rgba(18, 40, 140, 0.2) 65%, transparent 88%)",
-        }}
-      />
-      {/* Secondary Ultra-Wide Ambient Dispersion Halo */}
-      <div
-        className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2000px] lg:w-[2500px] h-[1000px] lg:h-[1300px] pointer-events-none rounded-full blur-[170px] opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(35, 70, 200, 0.3) 0%, rgba(55, 25, 130, 0.15) 50%, transparent 85%)",
-        }}
-      />
+    <section id="crew" className="pt-0 pb-[80px] lg:pb-[110px] min-[1200px]:pb-[100px] relative overflow-hidden bg-[#080B18]">
 
       {/* 
         Main Frame matching Universe Section's responsive width:
@@ -37,7 +17,7 @@ export default function CrewSection() {
         - Ultra-Wide / 2K (2xl): max-w-[1600px]
         - 80px horizontal margin buffer on desktop (lg:px-[80px])
       */}
-      <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px] relative z-10">
+      <div className="w-full max-w-[1760px] mt-[40px] mx-auto px-4 sm:px-8 lg:px-[80px] relative z-10">
         <div className="w-full max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-8 xl:gap-10">
           {/* Header Block (Left-aligned as in Figma, scaling smoothly) */}
           <motion.div
@@ -56,20 +36,43 @@ export default function CrewSection() {
           </motion.div>
 
           {/* 
-            Crew 4-Column Grid:
-            With pt-6 to pt-8 to accommodate avatars when they scale up and break out of the top on hover
+            Crew 4-Column Grid with compact shiny shape backdrop:
+            A focused, localized spotlight centered behind the cards (not spreading across the whole section)
           */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 xl:gap-8 items-start pt-6 sm:pt-8"
-          >
-            {CREW_MEMBERS.map((member) => (
-              <CrewMemberCard key={member.id} member={member} />
-            ))}
-          </motion.div>
+          <div className="relative">
+            {/* Localized shiny shape (x1.7 size) */}
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-4 sm:mt-6 w-[884px] sm:w-[1564px] lg:w-[2040px] h-[510px] sm:h-[646px] lg:h-[680px] pointer-events-none z-0"
+              aria-hidden="true"
+            >
+              <div
+                className="absolute inset-0 rounded-full blur-[75px] sm:blur-[105px]"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(45, 95, 255, 0.3) 0%, rgba(20, 50, 180, 0.14) 55%, transparent 75%)",
+                }}
+              />
+              <div
+                className="absolute inset-x-[15%] inset-y-[15%] rounded-full blur-[38px] sm:blur-[55px]"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(85, 150, 255, 0.22) 0%, transparent 70%)",
+                }}
+              />
+            </div>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 xl:gap-8 items-start justify-items-center pt-10 sm:pt-14"
+            >
+              {CREW_MEMBERS.map((member) => (
+                <CrewMemberCard key={member.id} member={member} />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
