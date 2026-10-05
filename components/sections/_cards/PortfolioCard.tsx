@@ -20,7 +20,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
       className="group relative bg-[#0e1328] hover:bg-[#111730] border border-[#1e2746]/60 hover:border-[#4d74f9]/50 rounded-[24px] sm:rounded-[28px] overflow-hidden transition-all duration-300 shadow-xl shadow-black/30 flex flex-col justify-between"
     >
       {/* Subtle ambient light on hover */}
-      <div className="absolute -top-16 -right-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
+      <div className="absolute -top-16 -end-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
 
       {/* Top Project Thumbnail Image */}
       <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#080b18]">
@@ -62,9 +62,10 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
           {project.ctaText && project.ctaLink && (
             <a
               href={project.ctaLink}
-              className="text-xs sm:text-[13px] font-secondary font-bold text-[#8fa7ff] hover:text-[#b3c4ff] tracking-wider uppercase transition-colors"
+              className="text-xs sm:text-[13px] font-secondary font-bold text-[#8fa7ff] hover:text-[#b3c4ff] tracking-wider uppercase transition-colors inline-flex items-center gap-1.5"
             >
-              {project.ctaText} →
+              <span>{project.ctaText}</span>
+              <span className="rtl:rotate-180 inline-block transition-transform">→</span>
             </a>
           )}
         </div>

@@ -2,14 +2,17 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Button from "@/components/ui/Button";
 import Container from "@/components/layout/Container";
 import GlowOrb from "@/components/ui/GlowOrb";
 import { fadeInUp, fadeInDown, scaleIn } from "@/lib/animations";
 
 export default function HeroSection() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="relative min-h-[640px] h-screen sm:h-[1024px] sm:min-h-[1024px] flex flex-col justify-between overflow-hidden">
       {/* Hero Background Images - Responsive (Desktop vs Tablet/Mobile) */}
@@ -40,16 +43,16 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Subtle top header gradient for navbar readability only - NO bottom shadow */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#060714]/75 to-transparent pointer-events-none z-10" />
+        {/* Subtle top header gradient for navbar readability only */}
+        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#060714]/75 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Ambient Lighting Orbs */}
-      <GlowOrb color="purple" size="xl" className="top-1/4 -left-32 opacity-35" />
-      <GlowOrb color="blue" size="lg" className="bottom-1/3 -right-24 opacity-25" delay={2} />
+      <GlowOrb color="purple" size="xl" className="top-1/4 -start-32 opacity-35" />
+      <GlowOrb color="blue" size="lg" className="bottom-1/3 -end-24 opacity-25" delay={2} />
 
       <Container className="relative z-10 h-full flex flex-col justify-between pt-24 sm:pt-28 pb-12 sm:pb-[140px]">
-        {/* Upper Hero Content: Positioned in top area like attached layout */}
+        {/* Upper Hero Content */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto pt-4 sm:pt-6">
           {/* Top Tag */}
           <motion.div
@@ -60,7 +63,7 @@ export default function HeroSection() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-[11px] sm:text-xs font-mono tracking-widest text-cyan-300 uppercase font-semibold">
-              DIGITAL ARCHITECTURE & IMMERSIVE WORLDS
+              {t("badge")}
             </span>
           </motion.div>
 
@@ -72,9 +75,9 @@ export default function HeroSection() {
             transition={{ delay: 0.12 }}
             className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-main text-white uppercase text-glow-lg leading-tight mb-5 tracking-wide"
           >
-            IDEAS START{" "}
+            {t("titlePart1")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-cyan-300">
-              HERE.
+              {t("titleHighlight")}
             </span>
           </motion.h1>
 
@@ -86,8 +89,7 @@ export default function HeroSection() {
             transition={{ delay: 0.22 }}
             className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed mb-6 font-normal drop-shadow-md"
           >
-            We turn raw abstractions into living websites, immersive spatial
-            experiences, and durable digital worlds engineered for the next era.
+            {t("subtitle")}
           </motion.p>
 
           {/* Primary Action Button */}
@@ -103,7 +105,7 @@ export default function HeroSection() {
               size="md"
               className="px-8 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-2xl"
             >
-              EXPLORE THE WORLD
+              {t("exploreButton")}
             </Button>
           </motion.div>
         </div>
@@ -120,19 +122,18 @@ export default function HeroSection() {
             <div className="flex items-center justify-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#8fa7ff] shadow-[0_0_8px_#8fa7ff]" />
               <span className="text-[12px] font-secondary font-medium tracking-wider text-[#8fa7ff] uppercase">
-                THE CREW BEHIND THE WORLD
+                {t("crewCardBadge")}
               </span>
             </div>
 
             {/* Title */}
             <h3 className="font-secondary font-medium text-[16px] sm:text-[19px] text-white tracking-tight mb-2">
-              Four minds. One universe.
+              {t("crewCardTitle")}
             </h3>
 
             {/* Subtitle / Description */}
             <p className="font-secondary text-xs sm:text-[13px] text-slate-300 leading-relaxed max-w-[260px] mb-6 sm:mb-7">
-              We combine UX/UI, frontend, backend, and security to turn
-               ideas into digital experiences.
+              {t("crewCardSubtitle")}
             </p>
 
             {/* Solid Periwinkle Full-Pill Action Button */}
@@ -140,7 +141,7 @@ export default function HeroSection() {
               href="#crew"
               className="w-[75%] py-3 sm:py-3.5 px-6 rounded-full bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-[0_0_20px_rgba(143,167,255,0.4)] active:scale-[0.98] inline-block text-center"
             >
-              MEET THE CREW
+              {t("meetCrewButton")}
             </Link>
           </motion.div>
         </div>

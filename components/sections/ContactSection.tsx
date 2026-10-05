@@ -2,12 +2,10 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, CheckCircle2 } from "lucide-react";
-import { fadeInLeft, fadeInRight } from "@/lib/animations";
+import { useLocale, useTranslations } from "next-intl";
+import { CheckCircle2 } from "lucide-react";
+import { fadeInStart, fadeInEnd } from "@/lib/animations";
 
-/**
- * Email Envelope Icon matching reference design in #C2B0F8
- */
 function EmailIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: string }) {
   return (
     <svg
@@ -25,9 +23,6 @@ function EmailIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: strin
   );
 }
 
-/**
- * Phone with Sound Waves Icon matching reference design in #C2B0F8
- */
 function PhoneWavesIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: string }) {
   return (
     <svg
@@ -46,9 +41,6 @@ function PhoneWavesIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: 
   );
 }
 
-/**
- * Address Map Pin over Folded Map Icon matching reference design in #C2B0F8
- */
 function AddressMapIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: string }) {
   return (
     <svg
@@ -69,9 +61,6 @@ function AddressMapIcon({ className = "w-6 h-6 text-[#C2B0F8]" }: { className?: 
   );
 }
 
-/**
- * Workstation with Laptop, Clock & Music Notes Icon matching reference design in #C2B0F8
- */
 function WorkstationDeskIcon({ className = "w-7 h-7 text-[#C2B0F8]" }: { className?: string }) {
   return (
     <svg
@@ -83,20 +72,14 @@ function WorkstationDeskIcon({ className = "w-7 h-7 text-[#C2B0F8]" }: { classNa
       strokeLinejoin="round"
       className={className}
     >
-      {/* Desk line */}
       <path d="M5 21h18" />
-      {/* Open laptop on desk */}
       <path d="M10 21l1.2-5h5.6l1.2 5" />
       <rect x="12" y="16" width="4" height="3" rx="0.5" />
-      {/* Person body & head */}
       <circle cx="14" cy="10" r="2.5" />
       <path d="M9.5 21c0-2.8 2-4.5 4.5-4.5s4.5 1.7 4.5 4.5" />
-      {/* Headphones / arc over head */}
       <path d="M11 9.5a3.5 3.5 0 0 1 6 0" />
-      {/* Clock arc behind on the left */}
       <path d="M7 16a7 7 0 0 1 0-10" />
       <path d="M7 11h2" />
-      {/* Musical notes / signals on the right */}
       <path d="M20 7v3.5M23 6v3.5M20 7l3-1" />
       <circle cx="19" cy="11" r="1" fill="#C2B0F8" />
       <circle cx="22" cy="10" r="1" fill="#C2B0F8" />
@@ -105,6 +88,9 @@ function WorkstationDeskIcon({ className = "w-7 h-7 text-[#C2B0F8]" }: { classNa
 }
 
 export default function ContactSection() {
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const t = useTranslations("Contact");
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -121,31 +107,26 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-[#060714]">
-      {/* 
-        Standard Responsive Dimensions System:
-        - Outer buffer: w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px]
-        - Inner content: max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto
-      */}
       <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-[80px] relative z-10">
         <div className="w-full max-w-[1280px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-start lg:items-stretch">
             
             {/* Left Column: Heading and 4 Contact Info Cards (5 cols) */}
             <motion.div
-              variants={fadeInLeft}
+              variants={fadeInStart(isRtl)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="lg:col-span-5 flex flex-col"
+              className="lg:col-span-5 flex flex-col text-start"
             >
               {/* Main Headline */}
               <h2 className="text-3xl sm:text-4xl md:text-[38px] xl:text-[42px] font-main font-normal text-white leading-[1.18] mb-3.5">
-                Have an idea? Let’s bring<br className="hidden sm:inline" /> it to life. Tell us what<br className="hidden sm:inline" /> you’re imagining...
+                {t("headlinePart1")}<br className="hidden sm:inline" /> {t("headlinePart2")}<br className="hidden sm:inline" /> {t("headlinePart3")}
               </h2>
 
               {/* Subtitle */}
               <p className="text-xs sm:text-[13px] font-secondary text-slate-300 leading-relaxed max-w-sm mb-7 sm:mb-8">
-                Tell us what you&apos;re imagining, and the MOONBYTE crew will help turn it into a digital experience.
+                {t("subtitle")}
               </p>
 
               {/* Outer Contact Items Card Container */}
@@ -158,33 +139,33 @@ export default function ContactSection() {
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <EmailIcon />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-start">
                     <span className="text-[15px] sm:text-base font-secondary font-bold text-[#7b9aff] group-hover:text-[#9bb3ff] transition-colors">
-                      Email
+                      {t("info.emailTitle")}
                     </span>
-                    <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5">
+                    <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5 dir-ltr text-start">
                       hello@moonbyte.studio
                     </span>
                     <span className="text-xs font-secondary font-bold text-white mt-0.5">
-                      Drop us a line anytime
+                      {t("info.emailSubtitle")}
                     </span>
                   </div>
                 </a>
 
                 {/* 2. Phone */}
                 <a
-                  href="tel:+970123456789"
+                  href="tel:+970597163524"
                   className="bg-[#0e163d]/60 hover:bg-[#131d4e]/80 border border-[#232f60] hover:border-[#3a4b8c] rounded-[20px] p-4 sm:p-4.5 flex items-center gap-4 transition-all group lg:flex-1"
                 >
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <PhoneWavesIcon />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-start">
                     <span className="text-[15px] sm:text-base font-secondary font-bold text-[#7b9aff] group-hover:text-[#9bb3ff] transition-colors">
-                      Phone
+                      {t("info.phoneTitle")}
                     </span>
-                    <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5">
-                      +970 123 456 789
+                    <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5" dir="ltr">
+                      +970 59 716 3524
                     </span>
                   </div>
                 </a>
@@ -194,12 +175,12 @@ export default function ContactSection() {
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <AddressMapIcon />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-start">
                     <span className="text-[15px] sm:text-base font-secondary font-bold text-[#7b9aff] group-hover:text-[#9bb3ff] transition-colors">
-                      Address
+                      {t("info.addressTitle")}
                     </span>
                     <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5">
-                      Palestine Street, Gaza, Palestine
+                      {t("info.addressValue")}
                     </span>
                   </div>
                 </div>
@@ -209,15 +190,15 @@ export default function ContactSection() {
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] border border-[#C2B0F8]/45 bg-transparent flex items-center justify-center text-[#C2B0F8] shrink-0 transition-colors group-hover:border-[#C2B0F8]">
                     <WorkstationDeskIcon />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-start">
                     <span className="text-[15px] sm:text-base font-secondary font-bold text-[#7b9aff] group-hover:text-[#9bb3ff] transition-colors">
-                      Working Hours
+                      {t("info.hoursTitle")}
                     </span>
                     <span className="text-xs sm:text-[13px] font-secondary text-white mt-0.5">
-                      Usually Within 24 Hours
+                      {t("info.hoursValue")}
                     </span>
                     <span className="text-xs font-secondary font-bold text-white mt-0.5">
-                      Your message matters
+                      {t("info.hoursSubtitle")}
                     </span>
                   </div>
                 </div>
@@ -226,11 +207,11 @@ export default function ContactSection() {
 
             {/* Right Column: Contact Form (7 cols) */}
             <motion.div
-              variants={fadeInRight}
+              variants={fadeInEnd(isRtl)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="lg:col-span-7 flex flex-col"
+              className="lg:col-span-7 flex flex-col text-start"
             >
               <div className="bg-[#080D2B] border border-[#1b2552] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 md:p-9 shadow-2xl lg:h-full lg:flex lg:flex-col lg:justify-between">
                 {submitted ? (
@@ -239,16 +220,16 @@ export default function ContactSection() {
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
                     <h3 className="text-2xl font-main text-white mb-2">
-                      Transmission Received!
+                      {t("form.successTitle")}
                     </h3>
                     <p className="text-sm font-secondary text-slate-300 max-w-md mx-auto mb-6">
-                      Our crew will review your idea and get in touch within 24 hours.
+                      {t("form.successMessage")}
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
                       className="bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-sm px-6 py-3 rounded-xl transition-all cursor-pointer"
                     >
-                      SEND ANOTHER IDEA
+                      {t("form.anotherButton")}
                     </button>
                   </div>
                 ) : (
@@ -256,7 +237,7 @@ export default function ContactSection() {
                     {/* Full Name */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
-                        Full Name <span className="text-[#8fa7ff]">*</span>
+                        {t("form.fullName")} <span className="text-[#8fa7ff]">*</span>
                       </label>
                       <input
                         type="text"
@@ -265,15 +246,15 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        placeholder="Example: Yousef Samy"
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors"
+                        placeholder={t("form.fullNamePlaceholder")}
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors text-start"
                       />
                     </div>
 
                     {/* Email Address */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
-                        Email Address <span className="text-[#8fa7ff]">*</span>
+                        {t("form.email")} <span className="text-[#8fa7ff]">*</span>
                       </label>
                       <input
                         type="email"
@@ -282,15 +263,15 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        placeholder="Example: example@email.com"
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors"
+                        placeholder={t("form.emailPlaceholder")}
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors text-start"
                       />
                     </div>
 
                     {/* Phone Number */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
-                        Phone Number <span className="text-[#8fa7ff]">*</span>
+                        {t("form.phone")} <span className="text-[#8fa7ff]">*</span>
                       </label>
                       <input
                         type="tel"
@@ -299,15 +280,15 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
                         }
-                        placeholder="Example: +970 59-770-5019"
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors"
+                        placeholder={t("form.phonePlaceholder")}
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors text-start"
                       />
                     </div>
 
                     {/* Project Type */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
-                        Project Type <span className="text-[#8fa7ff]">*</span>
+                        {t("form.projectType")} <span className="text-[#8fa7ff]">*</span>
                       </label>
                       <input
                         type="text"
@@ -316,15 +297,15 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, projectType: e.target.value })
                         }
-                        placeholder="Example: E-commerce Dash or SaaS Redesign"
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors"
+                        placeholder={t("form.projectTypePlaceholder")}
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors text-start"
                       />
                     </div>
 
                     {/* Message */}
                     <div>
                       <label className="block text-xs sm:text-[13px] font-secondary font-medium text-slate-200 mb-2">
-                        Message <span className="text-[#8fa7ff]">*</span>
+                        {t("form.message")} <span className="text-[#8fa7ff]">*</span>
                       </label>
                       <textarea
                         required
@@ -333,8 +314,8 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
                         }
-                        placeholder="Example: I have a great idea for an app or website and I need expert consultation on UI/UX design and development to bring this idea to life."
-                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors resize-none leading-relaxed lg:h-[200px]"
+                        placeholder={t("form.messagePlaceholder")}
+                        className="w-full bg-[#080b19] border border-[#1a2238] focus:border-[#4d66b5] focus:outline-none focus:ring-1 focus:ring-[#4d66b5]/50 rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-slate-500 font-secondary transition-colors resize-none leading-relaxed lg:h-[200px] text-start"
                       />
                     </div>
 
@@ -343,7 +324,7 @@ export default function ContactSection() {
                       type="submit"
                       className="w-full bg-[#8fa7ff] hover:bg-[#9db4ff] text-[#0a1024] font-secondary font-bold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl sm:rounded-2xl transition-all shadow-md active:scale-[0.99] mt-2 cursor-pointer tracking-wide"
                     >
-                      Send The Idea
+                      {t("form.submitButton")}
                     </button>
                   </form>
                 )}

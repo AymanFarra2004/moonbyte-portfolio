@@ -28,7 +28,7 @@ export default function UniverseCard({ data }: UniverseCardProps) {
       }`}
     >
       {/* Subtle ambient highlight on hover */}
-      <div className="absolute -top-16 -right-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
+      <div className="absolute -top-16 -end-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
 
       {isColSpan2 && data.stats ? (
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 xl:gap-8 h-full relative z-10">

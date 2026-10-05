@@ -92,7 +92,7 @@ export default function CrewMemberCard({ member }: CrewMemberCardProps) {
           - Desktop: pt-[240px] default -> pt-[243px] on hover
         */}
         <div
-          className={`relative inset-x-0 px-5 pb-6 z-20 flex flex-col justify-start text-left pointer-events-none transition-all duration-500 ease-out ${isExpanded
+          className={`relative inset-x-0 px-5 pb-6 z-20 flex flex-col justify-start text-start pointer-events-none transition-all duration-500 ease-out ${isExpanded
               ? "pt-[243px]"
               : "pt-[240px] lg:group-hover:pt-[243px]"
             }`}

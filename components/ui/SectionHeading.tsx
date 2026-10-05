@@ -16,9 +16,9 @@ export default function SectionHeading({
   className = "",
 }: SectionHeadingProps) {
   const alignmentClass = {
-    left: "text-left items-start",
+    left: "text-start items-start",
     center: "text-center items-center mx-auto",
-    right: "text-right items-end",
+    right: "text-end items-end",
   }[align];
 
   return (

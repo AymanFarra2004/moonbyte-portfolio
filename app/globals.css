@@ -21,6 +21,14 @@
     font-family: var(--font-secondary);
   }
 
+  /* Arabic typography and RTL enhancements */
+  html[lang="ar"],
+  html[dir="rtl"] {
+    --font-main: var(--font-cairo), sans-serif;
+    --font-secondary: var(--font-cairo), sans-serif;
+    font-family: var(--font-cairo), sans-serif;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -43,11 +51,11 @@
 }
 
 .font-main {
-  font-family: var(--font-coiny), cursive, sans-serif !important;
+  font-family: var(--font-main) !important;
 }
 
 .font-secondary {
-  font-family: var(--font-fredoka), sans-serif !important;
+  font-family: var(--font-secondary) !important;
 }
 
 /* Custom Utilities for Moonbyte Cosmic Theme */

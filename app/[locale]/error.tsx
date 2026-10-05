@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 
@@ -11,6 +12,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations("Error");
+
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -22,10 +25,10 @@ export default function Error({
           <AlertTriangle className="w-7 h-7" />
         </div>
         <h2 className="text-xl font-bold text-white uppercase tracking-wider mb-2">
-          Signal Interrupted
+          {t("title")}
         </h2>
-        <p className="text-sm text-slate-400 mb-6">
-          An unexpected variance occurred in orbital telemetry. You can attempt to re-establish the connection.
+        <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+          {t("description")}
         </p>
         <Button
           onClick={() => reset()}
@@ -33,7 +36,7 @@ export default function Error({
           size="md"
           icon={<RotateCcw className="w-4 h-4" />}
         >
-          RETRY TRANSMISSION
+          {t("retry")}
         </Button>
       </div>
     </div>

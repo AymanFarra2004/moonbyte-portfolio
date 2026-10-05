@@ -23,7 +23,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       className="group relative bg-[#12162a]/35 hover:bg-[#151a33]/85 backdrop-blur-[2px] rounded-[20px] sm:rounded-[24px] xl:rounded-[28px] p-5 sm:p-5.5 lg:p-5 xl:p-6 border border-white/[0.08] hover:border-blue-400/30 shadow-[0_20px_45px_rgba(0,0,0,0.6),0_6px_16px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col justify-between overflow-hidden"
     >
       {/* Subtle ambient light on hover */}
-      <div className="absolute -top-16 -right-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
+      <div className="absolute -top-16 -end-16 w-36 h-36 bg-blue-500/0 group-hover:bg-blue-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-500" />
 
       <div>
         {/* Top Header: Title & Number */}

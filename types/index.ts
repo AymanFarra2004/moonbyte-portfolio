@@ -1,11 +1,18 @@
 export interface NavItem {
-  label: string;
+  id: string;
   href: string;
 }
 
 export interface UniverseStat {
   value: string;
   label: string;
+}
+
+export interface UniverseCardConfig {
+  id: string;
+  href: string;
+  colSpan?: number;
+  hasStats?: boolean;
 }
 
 export interface UniverseCardData {
@@ -21,6 +28,11 @@ export interface UniverseCardData {
   colSpan?: number;
 }
 
+export interface CrewMemberConfig {
+  id: string;
+  image: string;
+}
+
 export interface CrewMember {
   id: string;
   name: string;
@@ -31,12 +43,23 @@ export interface CrewMember {
   description?: string;
 }
 
+export interface ServiceConfig {
+  id: string;
+  number: string;
+}
+
 export interface ServiceItem {
   id: string;
   number: string;
   title: string;
   description: string;
   features?: string[];
+}
+
+export interface PortfolioProjectConfig {
+  id: string;
+  image: string;
+  ctaLink: string;
 }
 
 export interface PortfolioProject {

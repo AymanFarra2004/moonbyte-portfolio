@@ -44,6 +44,24 @@ export const fadeInRight: Variants = {
   },
 };
 
+export const fadeInStart = (isRtl = false): Variants => ({
+  hidden: { opacity: 0, x: isRtl ? 50 : -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+});
+
+export const fadeInEnd = (isRtl = false): Variants => ({
+  hidden: { opacity: 0, x: isRtl ? -50 : 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+});
+
 export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.92 },
   visible: {

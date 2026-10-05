@@ -1,14 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { NAV_ITEMS } from "@/data/site-data";
 import Button from "@/components/ui/Button";
-import { Menu, X, Sparkles } from "lucide-react";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const t = useTranslations("Nav");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,7 +25,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "glass-nav py-3.5 shadow-2xl shadow-purple-950/20"
           : "bg-transparent py-5"
@@ -49,32 +52,36 @@ export default function Header() {
               href={item.href}
               className="text-xs font-secondary font-medium tracking-wider text-slate-300 hover:text-white uppercase transition-colors relative py-1 group"
             >
-              {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
+              {t(item.id as any)}
+              <span className="absolute bottom-0 inset-x-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300 rounded-full" />
             </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA Button */}
-        <div className="hidden md:block">
+        {/* Desktop Actions: LocaleSwitcher + CTA Button */}
+        <div className="hidden md:flex items-center gap-3">
+          <LocaleSwitcher />
           <Button
             href="#about"
             variant="cyan"
             size="sm"
             className="font-bold text-xs px-5 py-2.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white shadow-lg shadow-blue-500/25"
           >
-            ENTER THE WORLD
+            {t("enterWorld")}
           </Button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-950/40 focus:outline-none"
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile: LocaleSwitcher + Hamburger Toggle */}
+        <div className="flex md:hidden items-center gap-2">
+          <LocaleSwitcher />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-purple-950/40 focus:outline-none cursor-pointer"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
@@ -94,7 +101,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-sm font-semibold tracking-wider text-slate-200 hover:text-purple-400 uppercase py-2 border-b border-purple-900/30"
                 >
-                  {item.label}
+                  {t(item.id as any)}
                 </Link>
               ))}
               <div className="pt-2">
@@ -105,7 +112,7 @@ export default function Header() {
                   className="w-full"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  START A PROJECT
+                  {t("startProject")}
                 </Button>
               </div>
             </div>
